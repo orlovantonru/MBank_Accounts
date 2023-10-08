@@ -16,17 +16,16 @@
     <properties>
         <java.version>17</java.version>
         <jooq.version>3.18.6</jooq.version>
+        <flyway.user>mbank</flyway.user>
+        <flyway.password>pgpwdmbank</flyway.password>
+        <flyway.driver>org.postgresql.Driver</flyway.driver>
+        <flyway.url>jdbc:postgresql://localhost:5432/mbank_accounts</flyway.url>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jooq</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -62,6 +61,17 @@
             <artifactId>jooq-codegen</artifactId>
             <version>${jooq.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-maven-plugin -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>3.1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-maven-plugin</artifactId>
+            <version>9.22.2</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -78,6 +88,19 @@
                     </excludes>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>9.22.2</version>
+                <configuration>
+                    <user>mbank</user>
+                    <password>pgpwdmbank</password>
+                    <driver>org.postgresql.Driver</driver>
+                    <url>jdbc:postgresql://localhost:5432/mbank_accounts</url>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.jooq</groupId>
                 <artifactId>jooq-codegen-maven</artifactId>
