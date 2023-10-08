@@ -1,11 +1,16 @@
 CREATE TABLE public.accounts (
-                                 idaccount int4 NOT NULL,
-                                 numaccount varchar NOT NULL,
-                                 dateaccount date NULL,
-                                 iduser int4 NULL,
-                                 CONSTRAINT accounts_pk PRIMARY KEY (idaccount)
+                                 id serial
+                                     constraint table__pk
+                                         primary key,
+                                 accountNumber varchar(20) NOT NULL,
+                                 accountDate date NULL,
+                                 userId int4 NULL,
+                                 percent float NULL,
+                                 saldo float NULL
+
 );
-CREATE INDEX accounts_idaccount_idx ON public.accounts USING btree (idaccount);
+
+
 
 
 
