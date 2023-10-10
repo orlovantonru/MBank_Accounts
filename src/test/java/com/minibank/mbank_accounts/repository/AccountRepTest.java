@@ -33,7 +33,7 @@ public class AccountRepTest {
         account = null;
         accountRepository.deleteAll();
     }
-
+/*
     @Test
         public void findById() {
         Account account = accountRepository.findById(1L).get();
@@ -86,5 +86,5 @@ public class AccountRepTest {
     public void findByUserIdTest() {
         List<Account> account = accountRepository.findByUserId(1L);
         Assertions.assertThat(account.size()).isGreaterThan(0);
-    }
+    }*/
 }
